@@ -15,6 +15,11 @@ void print2() {
     }); std::cout << '\n';
 }
 void print3() {
+    std::transform(begin(v), 
+                   end(v), 
+                   std::ostream_iterator<int>(std::cout, " "), 
+                   [](const auto& el) { return el; });
+    std::cout << '\n';
 }
 void print4() {
 }
