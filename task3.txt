@@ -1,0 +1,12 @@
+Zadanie3: Napisz program, który odczyta pewien plik wejściowy i usunie z niego wszystkie nadmiarowe spacje, oraz znaki nowej linii
+  Input:
+	"Ala ma kota a kot \n\n nie ma \nali\n\n\n\n !!! \n\n "
+  Output:
+	"Ala ma kota a kot \n nie ma \nali\n !!! \n "
+  Zasady:
+  	- W kodzie nie będzie znaków '\n' dodałem je tu tylko aby dane były zwięzłe. Będa jedynie entery.
+	- Kod ma być napisany z wykorzystaniem tylko STL!
+	- Im bardziej eleganckie rozwiązanie tym więcej punktów!
+	- Wczytujemy dane, filtrujemy je i wypisujemy na strumień wyjścia.
+	- Maksymalna ilość punktów: 5 eurobąbek
+	- Przykładowe dane do testowania zandjują się w pliku: Sumfing.txt
