@@ -1,0 +1,9 @@
+Zadanie1: Wykorzystaj (sensownie) jak najwięcej algorytmów, aby wypisać dane z wektora na strumień wyjścia (std::cout).
+  Zasady:
+	- Każde poprawne rozwiązanie 1 eurogąbek.
+	- Każde niepoprawne rozwiązanie -0.5 eurogąbki.
+	- std::count_if w którym umieścimy lambdę wypisująca dane do strumienia to złe rozwiązanie.
+	- std::generate jest zbyt dużym naciągnięciem, więc również odpada.
+	- Nie używamy raw pętli (for, while etc...).
+	- Jest 13 poprawnych algorytmów (4 z nich są lekkim nagięciem, ale są sensowne w niekotnych przypadkach).
+	- Maksymalna ilość punktów do zdobycia to 10 eurogąbek (zatem wystarczy 10 rozwiązań, nie trzeba zgadywać wszystkich).
