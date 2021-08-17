@@ -1,0 +1,16 @@
+Zadanie4: Napisz program, który Odczyta pewien plik wejściowy oraz wyświetli następujące statystyki.
+  Statystki do wypisania:
+	- Ilość znaków,
+	- Ilość słów,
+	- Ilość linii,
+	- Najczęściej występujące słowo wraz z liczbą powtórzeń (jeżeli jest ich więcej niż jedno, to wypisz wszystkie),
+	- Najrzadziej występujące słowo wraz z liczbą powtórzeń (jeżeli jest ich więcej niż jedno, to wypisz wszystkie),
+	- Najdłuższe słowo wraz z liczbą jego liter (jeżeli jest ich więcej niż jedno, to wypisz wszystkie),
+	- Najkrótsze słowo wraz z liczbą jego liter (jeżeli jest ich więcej niż jedno, to wypisz wszystkie),
+  Zasady:
+	- Korzystamy tylko z STL!
+	- Za każde poprawne wypisanie jednej ze statystyk 3 eurogąbki.
+	- Maksymalna liczba punktów to: 7 * 3 = 21 eurogąbek.
+	- Do dołączonego rozwiązania proszę zamieścić także plik, na którym testowaliście zadanie, abym mógł łatwo zweryfikować poprawność :)
+	- Przykładowe dane do testowania zandjują się w pliku: Sumfing2.txt
+	- Ilość znaków słów i linii można łatwo zweryfikować komendą `wc`, wyniki powinny być identyczne.
