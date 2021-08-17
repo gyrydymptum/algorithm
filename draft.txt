@@ -1,0 +1,16 @@
+ 9 przejść == 9 ifów
+           HigherNumber
+            /    \    \
+           /      \     \
+          /        \      \
+         /          \       \
+      OnePair    BigStrit    SmallStrit
+     /       \
+ TwoPair   Triplet
+    |       / |
+    |     /   |
+    |   /     |
+    | /       |
+ Full      Quadruplets
+              |
+            Poker
