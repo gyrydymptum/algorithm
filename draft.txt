@@ -1,13 +1,13 @@
  9 przejść == 9 ifów
 (n) - minimalna ilość kostek 
            HigherNumber
-			 (  1  )
+              (  1  )
             /    \    \
            /      \     \
           /        \      \
          /          \       \
       OnePair    BigStrit    SmallStrit
-	  (  2  )    (  5  )     (  5  )
+      (  2  )    (  5  )      (  5  )
      /       \
  TwoPair   Triplet
  (  4  )   (  3  )
@@ -18,6 +18,6 @@
  Full      Quadruplets
 (  5  )    (  4  )
               |
-			  |
-            Poker
-		   (  5  )
+              |
+             Poker
+            (  5  )

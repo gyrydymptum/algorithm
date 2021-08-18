@@ -16,12 +16,12 @@ public:
 
     [[nodiscard]] DicePoker * addDice(Range& diceRange) {
         for (const auto &option : options){
+            ++counter;
             if (option.check(diceRange)){
                 auto state = option.nextState();
                 //std::cout << "state changed to: " << state->name << '\n';
                 return state;
             }
-            ++counter;
         }
         return this;
     }
