@@ -10,18 +10,21 @@ void print1() {
     std::cout << '\n';
 }
 void print2() {
-    std::for_each(v.begin(), v.end(), [](const auto& el) {
+    std::for_each(begin(v), end(v), [](const auto& el) {
         std::cout << el << " ";
-    }); std::cout << '\n';
+    });
+    std::cout << '\n';
 }
 void print3() {
-    std::transform(begin(v), 
-                   end(v), 
-                   std::ostream_iterator<int>(std::cout, " "), 
+    std::transform(begin(v),
+                   end(v),
+                   std::ostream_iterator<int>(std::cout, " "),
                    [](const auto& el) { return el; });
     std::cout << '\n';
 }
 void print4() {
+    std::move(begin(v), end(v), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << '\n';
 }
 void print5() {
 }
