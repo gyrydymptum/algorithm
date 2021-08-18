@@ -18,6 +18,10 @@ void print_copy() {
     std::copy(begin(v), end(v), std::ostream_iterator<int>(std::cout, " "));
 }
 
+void print_copy_n() {
+    std::copy_n(begin(v), v.size(), std::ostream_iterator<int>(std::cout, " "));
+}
+
 void print_copy_if() {
     std::copy_if(begin(v), end(v), std::ostream_iterator<int>(std::cout, " "),
                  [](const auto& value) {
@@ -82,6 +86,8 @@ int main() {
     print_sample();
     std::cout << "\nprint_copy\n";
     print_copy();
+    std::cout << "\nprint_copy_n\n";
+    print_copy_n();
     std::cout << "\nprint_copy_if\n";
     print_copy_if();
     std::cout << "\nprint_for_each\n";
