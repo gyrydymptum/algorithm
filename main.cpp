@@ -9,8 +9,8 @@ void print(std::string str) {
     std::copy(str.begin(), str.end(), std::ostream_iterator<char>(std::cout));
 }
 
-int main() {
-    std::ifstream file("Sumfing.txt");
+void convertedText(std::string filetxt) {
+    std::ifstream file(filetxt);
     std::string str;
     std::string file_contents;
     if (file.is_open()) {
@@ -20,20 +20,18 @@ int main() {
         }
         file.close();
     }
-    file.close();
     std::cout << "ORIGINAL TEXT:\n";
     print(file_contents);
-
-    // auto it = std::unique(file_contents.begin(), file_contents.end(), [](auto& lhs, auto& rhs) {return lhs == rhs && std::isspace(lhs);});
-    // file_contents.erase(it, file_contents.end());
-
     file_contents.erase(std::unique(file_contents.begin(), file_contents.end(), [](auto& lhs, auto& rhs) {
                             return lhs == rhs && std::isspace(lhs);
                         }),
                         file_contents.end());
-
     std::cout << "CONVERTED TEXT:\n";
     print(file_contents);
+}
+
+int main() {
+    convertedText("Sumfing.txt");
 
     return 0;
 }
