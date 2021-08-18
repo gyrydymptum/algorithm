@@ -9,7 +9,7 @@ void print(std::string str) {
     std::copy(str.begin(), str.end(), std::ostream_iterator<char>(std::cout));
 }
 
-void convertedText(std::string filetxt) {
+std::string readTextFromFile(std::string filetxt) {
     std::ifstream file(filetxt);
     std::string str;
     std::string file_contents;
@@ -20,6 +20,11 @@ void convertedText(std::string filetxt) {
         }
         file.close();
     }
+    return file_contents;
+}
+
+void convertText(std::string filetxt) {
+    std::string file_contents = readTextFromFile(filetxt);    
     std::cout << "ORIGINAL TEXT:\n";
     print(file_contents);
     file_contents.erase(std::unique(file_contents.begin(), file_contents.end(), [](auto& lhs, auto& rhs) {
@@ -31,7 +36,7 @@ void convertedText(std::string filetxt) {
 }
 
 int main() {
-    convertedText("Sumfing.txt");
+    convertText("Sumfing.txt");
 
     return 0;
 }
