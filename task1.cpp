@@ -78,7 +78,7 @@ int main() {
     print_copy_if();
     std::cout << "\nprint_for_each\n";
     print_for_each();
-    std::cout << "\nprint_for_each_n";
+    std::cout << "\nprint_for_each_n\n";
     print_for_each_n();
     std::cout << "\nprint_transform\n";
     print_transform();
