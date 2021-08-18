@@ -23,7 +23,7 @@
 // 	- Finalna liczba punktów: ZDOBYTE_PUNKTY - (ILOŚĆ_IF_POWYŻEJ_10 * 2)
 // 	- Jeżeli wyjdzie Ci nawet 15 ifów to i tak dalej możesz zdobyć 10 punktów! (20 - (5 * 2)) = 10!
 
-// (n) - minimalna ilość kostek 
+// (n) - minimalna ilość kostek
 //            HigherNumber
 // 			 (  1  )
 //             /    \    \
@@ -54,9 +54,10 @@
 #include <numeric>
 
 #include <iterator>
+#include <random>
 
-void Game() {
-    DicePoker* hand;
+void Game(){
+    DicePoker *hand;
 
     hand = highNumber.addDice({1, 2, 3, 5, 6});
     std::cout << hand->name << '\n';
@@ -96,19 +97,23 @@ void Game() {
 
     std::cout << "\n\n\n";
 
-    auto rdice = [](){return std::rand()%6+1;};
+    std::random_device rd;  //Will be used to obtain a seed for the random number engine
+    std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+    std::uniform_int_distribution<> distrib(1, 6);
 
-    for(int i =0; i< 20;++i){
+    auto rdice = [&distrib, &gen](){ return (int)distrib(gen); };
+
+    do{
         DicesContainer arr = {rdice(), rdice(), rdice(), rdice(), rdice()};
-        std::copy(arr.cbegin(),arr.cend(), std::ostream_iterator<int>(std::cout, ", "));
-        std::cout << "\n"; 
+        std::copy(arr.cbegin(), arr.cend(), std::ostream_iterator<int>(std::cout, ", "));
+        std::cout << "\n";
         hand = highNumber.addDice(arr);
         std::cout << hand->name << '\n';
         DicePoker::counter = 0;
-    }
+    } while (hand->name != "poker");
 }
 
-int main() {
+int main(){
     Game();
     return 0;
 }
