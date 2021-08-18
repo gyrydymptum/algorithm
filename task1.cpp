@@ -25,6 +25,12 @@ void print_for_each() {
     });
 }
 
+void print_for_each_n() {
+    std::for_each_n(begin(v), v.size(), [](const auto& el) {
+        std::cout << el << " ";
+    });
+}
+
 void print_transform() {
     std::transform(begin(v),
                    end(v),
@@ -66,28 +72,31 @@ void print_accumulate() {
 }
 
 int main() {
+    std::cout << "\nprint_copy\n";
     print_copy();
-    std::cout << '\n';
+    std::cout << "\nprint_copy_if\n";
     print_copy_if();
-    std::cout << '\n';
+    std::cout << "\nprint_for_each\n";
     print_for_each();
-    std::cout << '\n';
+    std::cout << "\nprint_for_each_n";
+    print_for_each_n();
+    std::cout << "\nprint_transform\n";
     print_transform();
-    std::cout << '\n';
+    std::cout << "\nprint_move\n";
     print_move();
-    std::cout << '\n';
+    std::cout << "\nprint_reverse_copy\n";
     print_reverse_copy();
-    std::cout << '\n';
+    std::cout << "\nprint_rotate_copy\n";
     print_rotate_copy();
-    std::cout << '\n';
+    std::cout << "\nprint7\n";
     print7();
-    std::cout << '\n';
+    std::cout << "\nprint8\n";
     print8();
-    std::cout << '\n';
+    std::cout << "\nprint9\n";
     print9();
-    std::cout << '\n';
+    std::cout << "\nprint_reduce\n";
     print_reduce();
-    std::cout << '\n';
+    std::cout << "\nprint_accumulate\n";
     print_accumulate();
     std::cout << '\n';
     return 0;
