@@ -25,7 +25,7 @@ void print_copy_n() {
 void print_copy_if() {
     std::copy_if(begin(v), end(v), std::ostream_iterator<int>(std::cout, " "),
                  [](const auto& value) {
-                     return value > 0;
+                     return value < std::numeric_limits<int>::max();
                  });
 }
 
