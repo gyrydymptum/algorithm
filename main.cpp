@@ -25,7 +25,7 @@
 
 // (n) - minimalna ilość kostek
 //            HigherNumber
-// 			 (  1  )
+//               (  1  )
 //             /    \    \
 //            /      \     \
 //           /        \      \
@@ -42,68 +42,43 @@
 //    Full   Quadruplets
 //  (  5  )    (  4  )
 //               |
-// 		         |
+//               |
 //             Poker
 //            (  5  )
 
-//Pytanie czy testujemy pełne 5 rzutów czy co rzut by ocenić swoje szanse?
-
 #include "DicePoker.hpp"
-#include "PokerStates.hpp"
-#include <memory>
-#include <numeric>
+#include "PokerStates/PokerStates.hpp"
 
 #include <iterator>
 #include <random>
 
-void Game(){
-    DicePoker *hand;
+std::vector<DicesContainer> defaultTestResults = {
+    {1, 2, 3, 5, 6},
+    {1, 1, 2, 3, 4},
+    {1, 1, 2, 2, 3},
+    {1, 1, 1, 2, 3},
+    {1, 1, 1, 2, 2},
+    {1, 1, 1, 1, 2},
+    {1, 2, 3, 4, 5},
+    {2, 3, 4, 5, 6},
+    {1, 1, 1, 1, 1}};
 
-    hand = highNumber.addDice({1, 2, 3, 5, 6});
-    std::cout << hand->name << '\n';
-    DicePoker::counter = 0;
+void SimpleTest() {
+    DicePoker* hand;
+    for (const auto& dices : defaultTestResults) {
+        hand = highNumber.addDice(dices);
+        std::cout << hand->name << '\n';
+        DicePoker::counter = 0;
+    }
+}
 
-    hand = highNumber.addDice({1, 1, 2, 3, 4});
-    std::cout << hand->name << '\n';
-    DicePoker::counter = 0;
-
-    hand = highNumber.addDice({1, 1, 2, 2, 3});
-    std::cout << hand->name << '\n';
-    DicePoker::counter = 0;
-
-    hand = highNumber.addDice({1, 1, 1, 2, 3});
-    std::cout << hand->name << '\n';
-    DicePoker::counter = 0;
-
-    hand = highNumber.addDice({1, 1, 1, 2, 2});
-    std::cout << hand->name << '\n';
-    DicePoker::counter = 0;
-
-    hand = highNumber.addDice({1, 1, 1, 1, 2});
-    std::cout << hand->name << '\n';
-    DicePoker::counter = 0;
-
-    hand = highNumber.addDice({1, 2, 3, 4, 5});
-    std::cout << hand->name << '\n';
-    DicePoker::counter = 0;
-
-    hand = highNumber.addDice({2, 3, 4, 5, 6});
-    std::cout << hand->name << '\n';
-    DicePoker::counter = 0;
-
-    hand = highNumber.addDice({1, 1, 1, 1, 1});
-    std::cout << hand->name << '\n';
-    DicePoker::counter = 0;
-
-    std::cout << "\n\n\n";
-
-    std::random_device rd;  //Will be used to obtain a seed for the random number engine
-    std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+void RandomTest() {
+    DicePoker* hand;
+    std::random_device rd;
+    std::mt19937 gen(rd());
     std::uniform_int_distribution<> distrib(1, 6);
-
-    auto rdice = [&distrib, &gen](){ return (int)distrib(gen); };
-
-    do{
+    auto rdice = [&distrib, &gen]() { return (int)distrib(gen); };
+    do {
         DicesContainer arr = {rdice(), rdice(), rdice(), rdice(), rdice()};
         std::copy(arr.cbegin(), arr.cend(), std::ostream_iterator<int>(std::cout, ", "));
         std::cout << "\n";
@@ -113,7 +88,13 @@ void Game(){
     } while (hand->name != "poker");
 }
 
-int main(){
+void Game() {
+    SimpleTest();
+    std::cout << "\n\n\n";
+    RandomTest();
+}
+
+int main() {
     Game();
     return 0;
 }

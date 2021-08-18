@@ -1,12 +1,11 @@
 #pragma once
-
 #include <algorithm>
 
 class Dice {
 public:
-    Dice() = default;
     constexpr Dice(int value)
-        : value(value) {
+        : value(value) 
+    {
         value = std::clamp(1, value, 6);
     }
 
@@ -23,9 +22,6 @@ public:
         return dice.value == other;
     }
 
-    void print() const;
-    int getValue() const;
-
 private:
-    int value = 0;
+    int value;
 };
