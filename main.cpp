@@ -4,8 +4,8 @@
 
 int main() {
     std::cout << "Romeo and Juliet:\n";
-    Counter("../book.txt");
+    Counter romeo("../book.txt");
     std::cout << "\nLatin text:\n";
-    Counter("../Sumfing2.txt");
+    Counter latin("../Sumfing2.txt");
     return 0;
 }
