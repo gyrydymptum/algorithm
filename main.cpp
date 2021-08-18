@@ -49,30 +49,39 @@
 
 void Game() {
     DicePoker* hand;
+
     hand = highNumber.addDice({1, 2, 3, 5, 6});
     std::cout << hand->name << '\n';
     DicePoker::counter = 0;
+
     hand = highNumber.addDice({1, 1, 2, 3, 4});
     std::cout << hand->name << '\n';
     DicePoker::counter = 0;
+
     hand = highNumber.addDice({1, 1, 2, 2, 3});
     std::cout << hand->name << '\n';
     DicePoker::counter = 0;
+
     hand = highNumber.addDice({1, 1, 1, 2, 3});
     std::cout << hand->name << '\n';
     DicePoker::counter = 0;
+
     hand = highNumber.addDice({1, 1, 1, 2, 2});
     std::cout << hand->name << '\n';
     DicePoker::counter = 0;
+
     hand = highNumber.addDice({1, 1, 1, 1, 2});
     std::cout << hand->name << '\n';
     DicePoker::counter = 0;
+
     hand = highNumber.addDice({1, 2, 3, 4, 5});
     std::cout << hand->name << '\n';
     DicePoker::counter = 0;
+
     hand = highNumber.addDice({2, 3, 4, 5, 6});
     std::cout << hand->name << '\n';
     DicePoker::counter = 0;
+
     hand = highNumber.addDice({1, 1, 1, 1, 1});
     std::cout << hand->name << '\n';
     DicePoker::counter = 0;
