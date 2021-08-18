@@ -14,3 +14,4 @@ Zadanie4: Napisz program, który Odczyta pewien plik wejściowy oraz wyświetli 
 	- Do dołączonego rozwiązania proszę zamieścić także plik, na którym testowaliście zadanie, abym mógł łatwo zweryfikować poprawność :)
 	- Przykładowe dane do testowania zandjują się w pliku: Sumfing2.txt
 	- Ilość znaków słów i linii można łatwo zweryfikować komendą `wc`, wyniki powinny być identyczne.
+	
