@@ -7,21 +7,20 @@ std::vector<int> v{1, 2, 3};
 
 void print1() {
     std::copy(begin(v), end(v), std::ostream_iterator<int>(std::cout, " "));
-    std::cout << '\n';
 }
 void print2() {
     std::for_each(v.begin(), v.end(), [](const auto& el) {
         std::cout << el << " ";
-    }); std::cout << '\n';
+    });
 }
 void print3() {
-    std::transform(begin(v), 
-                   end(v), 
-                   std::ostream_iterator<int>(std::cout, " "), 
+    std::transform(begin(v),
+                   end(v),
+                   std::ostream_iterator<int>(std::cout, " "),
                    [](const auto& el) { return el; });
-    std::cout << '\n';
 }
 void print4() {
+    std::reverse_copy(std::rbegin(v), std::rend(v), std::ostream_iterator<int>(std::cout, " "));
 }
 void print5() {
 }
@@ -52,6 +51,7 @@ std::vector<void (*)()> printFuncs = {
 int main() {
     for (const auto& func : printFuncs) {
         func();
+        std::cout << '\n';
     }
 
     return 0;
