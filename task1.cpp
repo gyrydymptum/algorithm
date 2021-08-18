@@ -26,6 +26,8 @@ void print5() {
     std::reverse_copy(std::rbegin(v), std::rend(v), std::ostream_iterator<int>(std::cout, " "));
 }
 void print6() {
+    std::rotate_copy(begin(v), end(v), end(v),
+                     std::ostream_iterator<int>(std::cout, " "));
 }
 void print7() {
 }
