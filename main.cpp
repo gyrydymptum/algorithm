@@ -18,6 +18,7 @@ int main() {
             file_contents += str;
             file_contents.push_back('\n');
         }
+        file.close();
     }
     file.close();
     std::cout << "ORIGINAL TEXT:\n";
