@@ -23,22 +23,28 @@
 // 	- Finalna liczba punktów: ZDOBYTE_PUNKTY - (ILOŚĆ_IF_POWYŻEJ_10 * 2)
 // 	- Jeżeli wyjdzie Ci nawet 15 ifów to i tak dalej możesz zdobyć 10 punktów! (20 - (5 * 2)) = 10!
 
-// 9 przejść == 9 ifów
+// (n) - minimalna ilość kostek 
 //            HigherNumber
-//            /    \    \
-//           /      \     \
-//          /        \      \
-//         /          \       \
-//      OnePair    BigStrit    SmallStrit
-//     /       \
-// TwoPair   Triplet
-//    |       / |
-//    |     /   |
-//    |   /     |
-//    | /       |
-// Full      Quadruplets
-//              |
-//            Poker
+// 			 (  1  )
+//             /    \    \
+//            /      \     \
+//           /        \      \
+//          /          \       \
+//       OnePair    BigStrit    SmallStrit
+// 	     (  2  )    (  5  )      (  5  )
+//      /       \
+//  TwoPair   Triplet
+//  (  4  )   (  3  )
+//     |       / |
+//     |     /   |
+//     |   /     |
+//     | /       |
+//    Full   Quadruplets
+//  (  5  )    (  4  )
+//               |
+// 		         |
+//             Poker
+//            (  5  )
 
 //Pytanie czy testujemy pełne 5 rzutów czy co rzut by ocenić swoje szanse?
 
@@ -46,6 +52,8 @@
 #include "PokerStates.hpp"
 #include <memory>
 #include <numeric>
+
+#include <iterator>
 
 void Game() {
     DicePoker* hand;
@@ -85,6 +93,19 @@ void Game() {
     hand = highNumber.addDice({1, 1, 1, 1, 1});
     std::cout << hand->name << '\n';
     DicePoker::counter = 0;
+
+    std::cout << "\n\n\n";
+
+    auto rdice = [](){return std::rand()%6+1;};
+
+    for(int i =0; i< 20;++i){
+        DicesContainer arr = {rdice(), rdice(), rdice(), rdice(), rdice()};
+        std::copy(arr.cbegin(),arr.cend(), std::ostream_iterator<int>(std::cout, ", "));
+        std::cout << "\n"; 
+        hand = highNumber.addDice(arr);
+        std::cout << hand->name << '\n';
+        DicePoker::counter = 0;
+    }
 }
 
 int main() {

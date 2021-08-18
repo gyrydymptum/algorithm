@@ -12,9 +12,9 @@ public:
         : name(name), options(options) {}
     ~DicePoker() = default;
 
-static int counter;
+    static int counter;
 
-    [[nodiscard]] DicePoker *addDice(Range& diceRange){
+    [[nodiscard]] DicePoker * addDice(Range& diceRange) {
         for (const auto &option : options){
             if (option.check(diceRange)){
                 auto state = option.nextState();
@@ -26,7 +26,7 @@ static int counter;
         return this;
     }
 
-    [[nodiscard]] DicePoker *addDice(DicesContainer newdices){
+    [[nodiscard]] DicePoker * addDice(DicesContainer newdices){
         newdices.sort();
         size_t dicesNum = 2;
         
