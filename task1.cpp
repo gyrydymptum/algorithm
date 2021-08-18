@@ -11,7 +11,7 @@ std::vector<std::string> vs{"4", "5", "6"};
 
 void print_sample() {
     std::sample(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "),
-                5, std::mt19937{std::random_device{}()});
+                v.size(), std::mt19937{std::random_device{}()});
 }
 
 void print_copy() {
