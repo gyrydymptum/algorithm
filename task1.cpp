@@ -40,7 +40,7 @@ void print_reverse_copy() {
     std::reverse_copy(std::rbegin(v), std::rend(v), std::ostream_iterator<int>(std::cout, " "));
 }
 
-void print6() {
+void print_rotate_copy() {
     std::rotate_copy(begin(v), end(v), end(v),
                      std::ostream_iterator<int>(std::cout, " "));
 }
@@ -77,6 +77,8 @@ int main() {
     print_move();
     std::cout<<'\n';
     print_reverse_copy();
+    std::cout<<'\n';
+    print_rotate_copy();
     std::cout<<'\n';
     print7();
     std::cout<<'\n';
