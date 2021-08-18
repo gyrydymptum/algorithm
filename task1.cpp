@@ -1,9 +1,9 @@
 #include <algorithm>
 #include <iostream>
 #include <iterator>
-#include <vector>
 #include <numeric>
 #include <string>
+#include <vector>
 
 std::vector<int> v{1, 2, 3, 0, 0, 4, 5, 6};
 std::vector<std::string> vs{"4", "5", "6"};
@@ -14,9 +14,9 @@ void print_copy() {
 
 void print_copy_if() {
     std::copy_if(begin(v), end(v), std::ostream_iterator<int>(std::cout, " "),
-    [](const auto& value){
-        return value >0;
-    });
+                 [](const auto& value) {
+                     return value > 0;
+                 });
 }
 
 void print_for_each() {
@@ -56,9 +56,9 @@ void print9() {
 
 void print_reduce() {
     std::cout << std::reduce(begin(vs), end(vs), std::string{},
-    [](auto result, auto value){
-        return result + value + " ";
-    });
+                             [](auto result, auto value) {
+                                 return result + value + " ";
+                             });
 }
 
 void print_accumulate() {
@@ -67,28 +67,28 @@ void print_accumulate() {
 
 int main() {
     print_copy();
-    std::cout<<'\n';
+    std::cout << '\n';
     print_copy_if();
-    std::cout<<'\n';
+    std::cout << '\n';
     print_for_each();
-    std::cout<<'\n';
+    std::cout << '\n';
     print_transform();
-    std::cout<<'\n';
+    std::cout << '\n';
     print_move();
-    std::cout<<'\n';
+    std::cout << '\n';
     print_reverse_copy();
-    std::cout<<'\n';
+    std::cout << '\n';
     print_rotate_copy();
-    std::cout<<'\n';
+    std::cout << '\n';
     print7();
-    std::cout<<'\n';
+    std::cout << '\n';
     print8();
-    std::cout<<'\n';
+    std::cout << '\n';
     print9();
-    std::cout<<'\n';
+    std::cout << '\n';
     print_reduce();
-    std::cout<<'\n';
+    std::cout << '\n';
     print_accumulate();
-    std::cout<<'\n';
+    std::cout << '\n';
     return 0;
 }
