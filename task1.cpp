@@ -4,9 +4,15 @@
 #include <numeric>
 #include <string>
 #include <vector>
+#include <random>
 
 std::vector<int> v{1, 2, 3, 0, 0, 4, 5, 6};
 std::vector<std::string> vs{"4", "5", "6"};
+
+void print_sample() {
+    std::sample(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "),
+                5, std::mt19937{std::random_device{}()});
+}
 
 void print_copy() {
     std::copy(begin(v), end(v), std::ostream_iterator<int>(std::cout, " "));
@@ -72,6 +78,8 @@ void print_accumulate() {
 }
 
 int main() {
+    std::cout << "\nprint_sample\n";
+    print_sample();
     std::cout << "\nprint_copy\n";
     print_copy();
     std::cout << "\nprint_copy_if\n";
