@@ -9,19 +9,23 @@
 std::vector<int> v{1, 2, 3,};
 std::vector<std::string> vs{"1","2","3"};
 
+// I didn't thought about it. I agree that it could make sense but it too much hacky ;/ -> I will not substract point for it. Just 0
 void print_sample() {
     std::sample(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "),
                 v.size(), std::mt19937{std::random_device{}()});
 }
 
+// ok
 void print_copy() {
     std::copy(begin(v), end(v), std::ostream_iterator<int>(std::cout, " "));
 }
 
+// ok
 void print_copy_n() {
     std::copy_n(begin(v), v.size(), std::ostream_iterator<int>(std::cout, " "));
 }
 
+// ok
 void print_copy_if() {
     std::copy_if(begin(v), end(v), std::ostream_iterator<int>(std::cout, " "),
                  [](const auto& value) {
@@ -29,18 +33,21 @@ void print_copy_if() {
                  });
 }
 
+// ok
 void print_for_each() {
     std::for_each(begin(v), end(v), [](const auto& el) {
         std::cout << el << " ";
     });
 }
 
+// ok
 void print_for_each_n() {
     std::for_each_n(begin(v), v.size(), [](const auto& el) {
         std::cout << el << " ";
     });
 }
 
+// ok
 void print_transform() {
     std::transform(begin(v),
                    end(v),
@@ -48,19 +55,23 @@ void print_transform() {
                    [](const auto& el) { return el; });
 }
 
+// ok
 void print_move() {
     std::move(begin(v), end(v), std::ostream_iterator<int>(std::cout, " "));
 }
 
+// ok
 void print_reverse_copy() {
     std::reverse_copy(std::rbegin(v), std::rend(v), std::ostream_iterator<int>(std::cout, " "));
 }
 
+// ok (this is hacky one)
 void print_rotate_copy() {
     std::rotate_copy(begin(v), end(v), end(v),
                      std::ostream_iterator<int>(std::cout, " "));
 }
 
+// I didn't thought about it. I agree that it could make sense but it too much hacky ;/ -> I will not substract point for it. Just 0
 void print_reduce() {
     std::cout << std::reduce(begin(vs), end(vs), std::string{},
                              [](auto result, auto value) {
@@ -68,6 +79,7 @@ void print_reduce() {
                              });
 }
 
+// I didn't thought about it. I agree that it could make sense but it too much hacky ;/ -> I will not substract point for it. Just 0
 void print_accumulate() {
     std::cout << std::accumulate(begin(vs), end(vs), std::string{});
 }
@@ -100,3 +112,6 @@ int main() {
     std::cout << '\n';
     return 0;
 }
+
+// Conclusion 9 ok | 3 neutral (0)
+// POINTS: 9
