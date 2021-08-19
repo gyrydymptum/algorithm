@@ -39,19 +39,18 @@ void Counter::print() {
     std::cout << "Characters: " << characterCount_ << '\n';
     std::cout << "Words: " << wordCount_ << '\n';
     std::cout << "Lines: " << lineCount_ << '\n';
-    auto it = wordSizeMap_.cbegin();
-    if (it->first == 0) {
-        ++it;
-    }
-    std::cout << "Shortest words, (" << it->first << " characters): ";
-    std::copy(it->second.cbegin(), it->second.cend(), std::ostream_iterator<std::string>(std::cout, " "));
+    std::cout << "Shortest words, (" << wordSizeMap_.cbegin()->first << " characters): ";
+    std::copy(wordSizeMap_.cbegin()->second.cbegin(),
+              wordSizeMap_.cbegin()->second.cend(),
+              std::ostream_iterator<std::string>(std::cout, " "));
     std::cout << "\nLongest words, (" << wordSizeMap_.rbegin()->first << " characters): ";
     std::copy(wordSizeMap_.rbegin()->second.cbegin(),
               wordSizeMap_.rbegin()->second.cend(),
               std::ostream_iterator<std::string>(std::cout, " "));
-    auto minmaxVal = std::minmax_element(wordCounterMap_.cbegin(), wordCounterMap_.cend(), [](const auto& a, const auto& b) {
-        return a.second < b.second;
-    });
+    auto minmaxVal = std::minmax_element(wordCounterMap_.cbegin(), wordCounterMap_.cend(),
+                                         [](const auto& a, const auto& b) {
+                                             return a.second < b.second;
+                                         });
     std::cout << "\nRarest words (occurrences:  " << minmaxVal.first->second << "): ";
     std::for_each(wordCounterMap_.cbegin(), wordCounterMap_.cend(), [&](const auto& pair) {
         if (pair.second == minmaxVal.first->second) {
