@@ -6,8 +6,8 @@
 #include <vector>
 #include <random>
 
-std::vector<int> v{1, 2, 3, 0, 0, 4, 5, 6};
-std::vector<std::string> vs{"4", "5", "6"};
+std::vector<int> v{1, 2, 3,};
+std::vector<std::string> vs{"1","2","3"};
 
 void print_sample() {
     std::sample(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "),
@@ -61,15 +61,6 @@ void print_rotate_copy() {
                      std::ostream_iterator<int>(std::cout, " "));
 }
 
-void print7() {
-}
-
-void print8() {
-}
-
-void print9() {
-}
-
 void print_reduce() {
     std::cout << std::reduce(begin(vs), end(vs), std::string{},
                              [](auto result, auto value) {
@@ -102,12 +93,6 @@ int main() {
     print_reverse_copy();
     std::cout << "\nprint_rotate_copy\n";
     print_rotate_copy();
-    std::cout << "\nprint7\n";
-    print7();
-    std::cout << "\nprint8\n";
-    print8();
-    std::cout << "\nprint9\n";
-    print9();
     std::cout << "\nprint_reduce\n";
     print_reduce();
     std::cout << "\nprint_accumulate\n";
