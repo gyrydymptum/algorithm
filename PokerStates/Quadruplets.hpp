@@ -6,7 +6,7 @@ DicePoker quadruplets(  //4dices or more
         NextState(
             poker, 
             5, 
-            [](auto dices) {
+            [](const auto& dices) {
                 return *dices.cbegin() == *dices.crbegin();
             }
         )

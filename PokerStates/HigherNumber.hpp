@@ -5,7 +5,7 @@ DicePoker highNumber(
         NextState(
             onePair, 
             2, 
-            [](auto dices) {
+            [](const auto& dices) {
                 auto it = std::adjacent_find(dices.cbegin(), dices.cend());
                 return it != dices.cend();
             }
@@ -13,14 +13,14 @@ DicePoker highNumber(
         NextState(
             bigStrit, 
             5, 
-            [](auto dices) {
+            [](const auto& dices) {
                 return std::equal(dices.cbegin(), dices.cend(), DicesContainer{2, 3, 4, 5, 6}.begin());
             }
         ),
         NextState(
             smallStrit, 
             5, 
-            [](auto dices) {
+            [](const auto& dices) {
                 return std::equal(dices.cbegin(), dices.cend(), DicesContainer{1, 2, 3, 4, 5}.begin());
             }
         )
