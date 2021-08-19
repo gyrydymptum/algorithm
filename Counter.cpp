@@ -56,7 +56,6 @@ void Counter::rareCommonWordsFill(const WordCounterMapType& map) {
                    [](const auto& word) {
                        return word.first;
                    });
-
     std::vector<std::pair<std::string, size_t>> commonWordsPair;
     std::copy_if(map.cbegin(), map.cend(), std::back_inserter(commonWordsPair), [&](const auto& pair) {
         return pair.second == minmaxVal.second->second;
