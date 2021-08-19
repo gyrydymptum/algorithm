@@ -1,3 +1,4 @@
+#pragma once
 #include "Poker.hpp"
 #include "Full.hpp"
 #include "BigStrit.hpp"

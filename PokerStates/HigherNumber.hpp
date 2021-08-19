@@ -14,15 +14,17 @@ DicePoker highNumber(
             bigStrit, 
             5, 
             [](auto dices) {
-                return std::is_permutation(dices.cbegin(), dices.cend(), std::begin({2, 3, 4, 5, 6}));
+                return std::equal(dices.cbegin(), dices.cend(), DicesContainer{2, 3, 4, 5, 6}.begin());
             }
         ),
         NextState(
             smallStrit, 
             5, 
             [](auto dices) {
-                return std::is_permutation(dices.cbegin(), dices.cend(), std::begin({1, 2, 3, 4, 5}));
+                return std::equal(dices.cbegin(), dices.cend(), DicesContainer{1, 2, 3, 4, 5}.begin());
             }
         )
     }
 );
+
+DicePoker& startPoker = highNumber;

@@ -18,9 +18,7 @@ public:
         return value == other;
     }
 
-    friend bool operator==(int other, const Dice& dice) {
-        return dice.value == other;
-    }
+    friend bool operator==(int other, const Dice& dice);
 
 private:
     int value;

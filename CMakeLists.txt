@@ -3,4 +3,4 @@ project(konkurs)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} main.cpp DicePoker.cpp Dice.cpp NextState.cpp SimpleTest.cpp)
