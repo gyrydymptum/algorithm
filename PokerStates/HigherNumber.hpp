@@ -27,4 +27,6 @@ DicePoker highNumber(
     }
 );
 
+// Hard to understand I spent 5 minutes looking, hwat actually hapens and why we asign startPoker here
+// Nice solution with state! But this should be initialize in game or sth like this
 DicePoker& startPoker = highNumber;

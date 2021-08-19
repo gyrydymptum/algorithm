@@ -18,6 +18,7 @@ public:
 private:
     [[nodiscard]] DicePoker* checkRange(DicesContainer& diceRange);
 
+    // use "sth_" -> it will be easier to know which variable is member
     std::string name;
     StateContainer options;
 };
