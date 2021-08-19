@@ -16,8 +16,10 @@ std::string readTextFromFile(std::string filetxt) {
     if (!file.is_open()) {
         throw std::invalid_argument("Could not open the file.");
     }
+
     file >> std::noskipws;
     std::copy(istream_it(file), istream_it(), std::back_inserter(file_contents));
+    // redundant
     file.close();
     return file_contents;
 }
@@ -35,7 +37,9 @@ void convertText(std::string filetxt) {
 }
 
 int main() {
-    convertText("../Sumfing.txt");
+    convertText("Sumfing.txt");
 
     return 0;
 }
+
+// NICE ONE 5 POINTS
