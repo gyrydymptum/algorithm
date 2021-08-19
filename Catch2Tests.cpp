@@ -48,10 +48,10 @@ TEST_CASE("Test high number") {
         return;
     }
 
-    // std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
-    // std::cout << '\n';
+    std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
+    std::cout << '\n';
     DicePoker* hand = startPoker.resolve(dices);
-    // std::cout << hand->getName() << '\n';
+    std::cout << hand->getName() << '\n';
 
     REQUIRE(hand->getName() == "high number");
 }
@@ -64,10 +64,10 @@ TEST_CASE("Test big strit") {
     std::advance(it, x);
     std::rotate(begin(dices), it, end(dices));
 
-    // std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
-    // std::cout << '\n';
+    std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
+    std::cout << '\n';
     DicePoker* hand = startPoker.resolve(dices);
-    // std::cout << hand->getName() << '\n';
+    std::cout << hand->getName() << '\n';
 
     REQUIRE(hand->getName() == "big strit");
 }
@@ -80,10 +80,10 @@ TEST_CASE("Test small strit") {
     std::advance(it, x);
     std::rotate(begin(dices), it, end(dices));
 
-    //std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
-    //std::cout << '\n';
+    std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
+    std::cout << '\n';
     DicePoker* hand = startPoker.resolve(dices);
-    //std::cout << hand->getName() << '\n';
+    std::cout << hand->getName() << '\n';
 
     REQUIRE(hand->getName() == "small strit");
 }
@@ -99,10 +99,10 @@ TEST_CASE("Test one pair") {
     dices.push_back(++y <= 6 ? y : y - 6);
     dices.push_back(++y <= 6 ? y : y - 6);
 
-    //std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
-    //std::cout << '\n';
+    std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
+    std::cout << '\n';
     DicePoker* hand = startPoker.resolve(dices);
-    //std::cout << hand->getName() << '\n';
+    std::cout << hand->getName() << '\n';
 
     REQUIRE(hand->getName() == "one pair");
 }
@@ -119,10 +119,10 @@ TEST_CASE("Test two pairs") {
     dices.push_back(y);
     dices.push_back(++y <= 6 ? y : y - 6);
 
-    //std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
-    //std::cout << '\n';
+    std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
+    std::cout << '\n';
     DicePoker* hand = startPoker.resolve(dices);
-    //std::cout << hand->getName() << '\n';
+    std::cout << hand->getName() << '\n';
 
     REQUIRE(hand->getName() == "two pairs");
 }
@@ -131,6 +131,7 @@ TEST_CASE("Test full") {
     DicesContainer dices;
     auto x = GENERATE(1, 2, 3, 4, 5, 6);
     auto y = GENERATE(1, 2, 3, 4, 5);
+    auto rot = GENERATE(1, 2, 3, 4, 5);
     dices.push_back(x);
     dices.push_back(x);
     dices.push_back(x);
@@ -138,11 +139,14 @@ TEST_CASE("Test full") {
     y = (y <= 6) ? y : y - 6;
     dices.push_back(y);
     dices.push_back(y);
+    auto it = dices.begin();
+    std::advance(it, rot);
+    std::rotate(dices.begin(), it, dices.end());
 
-    //std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
-    //std::cout << '\n';
+    std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
+    std::cout << '\n';
     DicePoker* hand = startPoker.resolve(dices);
-    //std::cout << hand->getName() << '\n';
+    std::cout << hand->getName() << '\n';
 
     REQUIRE(hand->getName() == "full");
 }
@@ -158,10 +162,10 @@ TEST_CASE("Test triple") {
     dices.push_back(y <= 6 ? y : y - 6);
     dices.push_back(++y <= 6 ? y : y - 6);
 
-    //std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
-    //std::cout << '\n';
+    std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
+    std::cout << '\n';
     DicePoker* hand = startPoker.resolve(dices);
-    //std::cout << hand->getName() << '\n';
+    std::cout << hand->getName() << '\n';
 
     REQUIRE(hand->getName() == "triplet");
 }
@@ -177,10 +181,10 @@ TEST_CASE("Test quadruplets") {
     y = x + y;
     dices.push_back(y <= 6 ? y : y - 6);
 
-    //std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
-    //std::cout << '\n';
+    std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
+    std::cout << '\n';
     DicePoker* hand = startPoker.resolve(dices);
-    //std::cout << hand->getName() << '\n';
+    std::cout << hand->getName() << '\n';
 
     REQUIRE(hand->getName() == "quadruplets");
 }
@@ -194,10 +198,10 @@ TEST_CASE("Test poker") {
     dices.push_back(x);
     dices.push_back(x);
 
-    //std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
-    //std::cout << '\n';
+    std::copy(dices.cbegin(), dices.cend(), std::ostream_iterator<int>(std::cout, ", "));
+    std::cout << '\n';
     DicePoker* hand = startPoker.resolve(dices);
-    //std::cout << hand->getName() << '\n';
+    std::cout << hand->getName() << '\n';
 
     REQUIRE(hand->getName() == "poker");
 }
