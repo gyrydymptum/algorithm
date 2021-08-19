@@ -21,6 +21,7 @@ Counter::Counter(const std::string& filePath) {
 }
 
 void Counter::readFromFile(const std::ifstream& inFile) {
+    // You cna achieve it using STL so I will grant you 1 points
     std::stringstream ss;
     ss << inFile.rdbuf();
     WordSizeMapType wordSizeMap;
@@ -89,3 +90,6 @@ void Counter::print() {
     std::copy(commonWords_.cbegin(), commonWords_.cend(), std::ostream_iterator<std::string>(std::cout, " "));
     std::cout << '\n';
 }
+
+// 19 points (only -2 for not readign file using copy and istream iterators)
+// Conclusion: 53 EUROFGĄBKI
