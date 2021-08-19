@@ -37,10 +37,10 @@ void Counter::readFromFile(const std::ifstream& inFile) {
     std::string fileContent{ss.str()};
     characterCount_ = fileContent.size();
     lineCount_ = static_cast<size_t>(std::count(fileContent.cbegin(), fileContent.cend(), '\n'));
-    minMaxCounts_ = rareCommonWordsFill(wordCounterMap);
+    rareCommonWordsFill(wordCounterMap);
 }
 
-std::pair<size_t, size_t> Counter::rareCommonWordsFill(const WordCounterMapType& map) {
+void Counter::rareCommonWordsFill(const WordCounterMapType& map) {
     auto minmaxVal = std::minmax_element(map.cbegin(), map.cend(),
                                          [](const auto& a, const auto& b) {
                                              return a.second < b.second;
@@ -62,7 +62,7 @@ std::pair<size_t, size_t> Counter::rareCommonWordsFill(const WordCounterMapType&
     std::transform(commonWordsPair.cbegin(), commonWordsPair.cend(), std::back_inserter(commonWords_), [](const auto& word) {
         return word.first;
     });
-    return std::make_pair(minmaxVal.first->second, minmaxVal.second->second);
+    minMaxCounts_ = std::make_pair(minmaxVal.first->second, minmaxVal.second->second);
 }
 
 void Counter::print() {

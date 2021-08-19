@@ -14,7 +14,7 @@ public:
 
 private:
     void readFromFile(const std::ifstream& inFile);
-    std::pair<size_t, size_t> rareCommonWordsFill(const WordCounterMapType& map);
+    void rareCommonWordsFill(const WordCounterMapType& map);
     void print();
     WordSizeMapType wordSizeMap_;
     std::pair<size_t, size_t> minMaxCounts_;
