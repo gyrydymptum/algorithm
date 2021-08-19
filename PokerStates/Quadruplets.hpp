@@ -1,5 +1,4 @@
 #pragma once
-#include <numeric>
 DicePoker quadruplets(  //4dices or more
     "quadruplets",
     {

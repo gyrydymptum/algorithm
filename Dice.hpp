@@ -1,13 +1,12 @@
 #pragma once
 #include <algorithm>
+#include <numeric>
 
 class Dice {
 public:
     constexpr Dice(int value)
-        : value(value) 
-    {
-        value = std::clamp(1, value, 6);
-    }
+        : value(std::min(std::max(1, value), 6)) 
+    {}
 
     operator int() const {
         return value;
