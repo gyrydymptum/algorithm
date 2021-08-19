@@ -11,10 +11,8 @@ public:
     Counter(const std::string& filePath);
 
 private:
-    void calculate();
+    void calculate(const std::ifstream& inFile);
     void print();
-    std::stringstream ss_;
-    std::string fileContent_;
     WordSizeMapType wordSizeMap_;
     WordCounterMapType wordCounterMap_;
     size_t characterCount_{0};

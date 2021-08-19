@@ -13,15 +13,16 @@ Counter::Counter(const std::string& filePath) {
     if (!inFile) {
         throw std::invalid_argument("Could not open the file.");
     }
-    ss_ << inFile.rdbuf();
+    calculate(inFile);
     inFile.close();
-    fileContent_ = ss_.str();
-    calculate();
+    print();
 }
 
-void Counter::calculate() {
+void Counter::calculate(const std::ifstream& inFile) {
+    std::stringstream ss;
+    ss << inFile.rdbuf();
     std::string word;
-    while (ss_ >> word) {
+    while (ss >> word) {
         word.erase(std::remove_if(word.begin(), word.end(), [](auto c) { return std::ispunct(c); }), word.end());
         std::transform(word.begin(), word.end(), word.begin(), [](auto c) { return std::tolower(c); });
         if (!word.empty()) {
@@ -30,9 +31,9 @@ void Counter::calculate() {
         }
         ++wordCount_;
     }
-    characterCount_ = fileContent_.size();
-    lineCount_ = static_cast<size_t>(std::count(fileContent_.cbegin(), fileContent_.cend(), '\n'));
-    print();
+    std::string fileContent {ss.str()};
+    characterCount_ = fileContent.size();
+    lineCount_ = static_cast<size_t>(std::count(fileContent.cbegin(), fileContent.cend(), '\n'));
 }
 
 void Counter::print() {
